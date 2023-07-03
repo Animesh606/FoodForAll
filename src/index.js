@@ -4,7 +4,9 @@ const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
 require('./db/connect');
-const router = require('./routers/route');
+const homeRouter = require('./routers/homeRouter');
+const NGORouter = require('./routers/NGORouter');
+const donorRouter = require('./routers/donorRouter');
 
 // Initialize variables
 const app = express();
@@ -21,7 +23,9 @@ app.set('views', templatePath);
 hbs.registerPartials(partialPath);
 app.use(express.urlencoded({extended : false}));
 app.use('/', express.static(staticPath));
-app.use(router);
+app.use(homeRouter);
+app.use(donorRouter);
+app.use(NGORouter);
 
 // Listening to the server 
 app.listen(port, () => {
