@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+
+    <!--- My CSS Link-->
+    <link rel="stylesheet" href="/css/signinstyle.css">
+</head>
+<body>
+
+    <main>
+        <section class="learn">
+           <h1>Welcome to our Organization Registration page!</h1>
+           <p>By joining our esteemed donor community, you are taking a powerful step towards making a difference in the lives of those who need it most</p>  
+        </section>
+
+        <section>
+            
+    <div class="sign-up">
+        <form action="post" class="signup-form" data-netlify="true" onsubmit="submitForm(event)">
+            <div class="form-btn">
+                <input type="text" placeholder="Organization Name" id="name">
+                <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                <p class="msg">Organization Name cannot be empty</p>
+            </div>
+
+            <div class="form-btn">
+                <input type="text" placeholder="Please enter full address"  id="address">
+                <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                <p class="msg">Address cannot be empty</p>
+            </div>
+
+            <div class="form-btn">
+                <input type="email" placeholder="Registered Email Address"  id="email">
+                <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                <p class="msg">Looks like this is not an email</p>
+            </div>
+            <div class="form-btn">
+                <input type="tel" placeholder="Please enter the contact No"  id="number">
+                <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                <p class="msg">Enter a valid number</p>
+            </div>
+            <div class="form-btn">
+                <input type="text" placeholder="Registration ID"  id="regID">
+                <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                <p class="msg">Please enter a valid ID</p>
+            </div>
+            <!-- <div class="form-btn"></div>
+            <input type="tel" id="contact-number" name="contact-number" placeholder="Enter your contact number" required>
+            </div> -->
+            <div class="form-btn">
+                <input type="password" placeholder="Password more than 8 characters" id="password">
+                <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                <p class="msg">Password should be more than 8 charecters</p>
+            </div>
+            <div class="form-btn">
+                <input type="password" placeholder="Enter Password again" id="password_again">
+                <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                <p class="msg">Password doesnot match</p>
+            </div>
+            <input id="submit-btn" type="submit" value="sign in" >
+
+            <p class="terms">By clicking the button, you are agreeing to our <span><a href="#">Terms and Services</a></span></p>
+        </form>
+        </section>
+    </main>
+    
+</body>
+<script src="/js/regNGO.js"></script>
+</html>

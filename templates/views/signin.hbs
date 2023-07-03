@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+
+    <!--- My CSS Link-->
+    <link rel="stylesheet" href="/css/signinstyle.css">
+</head>
+
+<body>
+
+    <main>
+        <section class="learn">
+            <h1>Welcome to our Donor Registration page!</h1>
+            <p>By joining our esteemed donor community, you are taking a powerful step towards making a difference in
+                the lives of those who need it most</p>
+        </section>
+
+        <section>
+
+            <div class="sign-up">
+                <form action="/donor/registration" class="signup-form" onsubmit="submitForm(event)" data-netlify="true" method="post">
+                    <div class="form-btn">
+                        <input type="text" placeholder="First Name" name="firstName" id="first-name">
+                        <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                        <p class="msg">First Name cannot be empty</p>
+                    </div>
+
+                    <div class="form-btn">
+                        <input type="text" placeholder="Last Name" name="lastName" id="last-name">
+                        <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                        <p class="msg">Last Name cannot be empty</p>
+                    </div>
+
+                    <div class="form-btn">
+                        <input type="email" placeholder="Email Address" id="email" name="email">
+                        <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                        <p class="msg">Looks like this is not an email</p>
+                    </div>
+
+                    <div class="form-btn">
+                        <input type="password" placeholder="Password more than 8 characters" id="password" name="password">
+                        <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                        <p class="msg">Password should be more than 8 charecters</p>
+                    </div>
+                    <div class="form-btn">
+                        <input type="password" placeholder="Enter Password again" id="password_again" name="cpasswrd">
+                        <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                        <p class="msg">Password doesnot match</p>
+                    </div>
+                    <input id="submit-btn" type="submit" value="sign in">
+
+                    <p class="terms">By clicking the button, you are agreeing to our <span><a href="#">Terms and
+                                Services</a></span></p>
+                </form>
+        </section>
+    </main>
+
+</body>
+<script src="/js/signjavascript.js"></script>
+
+</html>
