@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
+const db = `mongodb+srv://${process.env.CLOUD}@cluster0.lhs6gbm.mongodb.net/?retryWrites=true&w=majority`;
 // Connect Database with Serber 
-mongoose.connect(`mongodb://127.0.0.1:27017/${process.env.DATABASE}`).then(() => {
+mongoose.connect(db).then(() => {
     console.log('connection successful');
 }).catch((err) => {
     console.log(err);

@@ -35,7 +35,27 @@ const donorSchema = new mongoose.Schema({
             if(!validator.isStrongPassword(val))
                 throw new Error('Enter a Strong Password!');
         }
-    }
+    },
+    totalAmount : {
+        type : Number,
+        default : 0
+    },
+    donations : [{
+        tranId : {
+            type : String,
+            required : true,
+            unique : true
+        },
+        NGOName : {
+            type : String,
+            required : true,
+        },
+        amount : {
+            type : Number,
+            required : true,
+            min : 50
+        }
+    }]
 })
 
 donorSchema.pre('save', async function(next){

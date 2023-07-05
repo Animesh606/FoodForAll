@@ -47,7 +47,31 @@ const NGOSchema = new mongoose.Schema({
             if(!validator.isStrongPassword(val))
                 throw new Error('Enter a Strong Password!');
         }
-    }
+    },
+    goal : {
+        type : Number,
+        default : 0
+    },
+    fund : {
+        type : Number,
+        default : 0
+    },
+    donations : [{
+        tranId : {
+            type : String,
+            required : true,
+            unique : true
+        },
+        donorName : {
+            type : String,
+            required : true,
+        },
+        amount : {
+            type : Number,
+            required : true,
+            min : 50
+        }
+    }]
 })
 
 NGOSchema.pre('save', async function(next){
