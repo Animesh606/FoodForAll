@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcrypt = require('bcrypt');
 
 // Donor schema define 
 const donorSchema = new mongoose.Schema({
@@ -35,6 +36,13 @@ const donorSchema = new mongoose.Schema({
                 throw new Error('Enter a Strong Password!');
         }
     }
+})
+
+donorSchema.pre('save', async function(next){
+    if(this.isModified('password')){
+        this.password = await bcrypt.hash(this.password, 10);
+    }
+    next();
 })
 
 // Donor model creation 

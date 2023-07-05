@@ -7,6 +7,7 @@ require('./db/connect');
 const homeRouter = require('./routers/homeRouter');
 const NGORouter = require('./routers/NGORouter');
 const donorRouter = require('./routers/donorRouter');
+const exp = require('constants');
 
 // Initialize variables
 const app = express();
@@ -21,6 +22,7 @@ const partialPath = path.join(__dirname, '../templates/partials');
 app.set('view engine', 'hbs');
 app.set('views', templatePath);
 hbs.registerPartials(partialPath);
+app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 app.use('/', express.static(staticPath));
 app.use(homeRouter);

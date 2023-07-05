@@ -23,32 +23,32 @@
         <section>
 
             <div class="sign-up">
-                <form action="/donor/registration" class="signup-form" data-netlify="true" method="post">
+                <form action="/donor/registration" class="signup-form" data-netlify="true" method="post" onsubmit="return validation()">
                     <div class="form-btn">
-                        <input type="text" placeholder="First Name" name="firstName" id="first-name">
+                        <input type="text" placeholder="First Name" name="firstName" id="first-name" required>
                         <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
                         <p class="msg">First Name cannot be empty</p>
                     </div>
 
                     <div class="form-btn">
-                        <input type="text" placeholder="Last Name" name="lastName" id="last-name">
+                        <input type="text" placeholder="Last Name" name="lastName" id="last-name" required>
                         <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
                         <p class="msg">Last Name cannot be empty</p>
                     </div>
 
                     <div class="form-btn">
-                        <input type="email" placeholder="Email Address" id="email" name="email">
+                        <input type="email" placeholder="Email Address" id="email" name="email" required>
                         <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
                         <p class="msg">Looks like this is not an email</p>
                     </div>
 
                     <div class="form-btn">
-                        <input type="password" placeholder="Password more than 8 characters" id="password" name="password">
+                        <input type="password" placeholder="Password more than 8 characters" id="password" name="password" required>
                         <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
                         <p class="msg">Password should be more than 8 charecters</p>
                     </div>
                     <div class="form-btn">
-                        <input type="password" placeholder="Enter Password again" id="password_again" name="cpasswrd">
+                        <input type="password" placeholder="Enter Password again" id="password_again" name="cpassword" required>
                         <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
                         <p class="msg">Password doesnot match</p>
                     </div>

@@ -1,21 +1,10 @@
 // alert("vnb");
-function submitForm(event) {
-    
-    event.preventDefault(); // Prevent the form from submitting by default
-    // Get form input values
-    
+function validation() {
     const firstName = document.getElementById('first-name').value;
     const lastName = document.getElementById('last-name').value;
     const email = document.getElementById('email').value;
     const password1= document.getElementById('password').value;
     const password2= document.getElementById('password_again').value;
-    console.log(firstName);
-    console.log(lastName);
-    console.log(email);
-    console.log(password1);
-    console.log(password2);
-    // console.log("hucejhcbh")
-    // Perform form validation
     let isValid = true;
     
     if (firstName.trim() === '') {
@@ -72,8 +61,8 @@ function submitForm(event) {
     if (isValid) {
         // Perform the form submission or any other desired action
         console.log('Form submitted!');
-    
     }
+    return isValid;
 }
 
 function isValidEmail(email) {
