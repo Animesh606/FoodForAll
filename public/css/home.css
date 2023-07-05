@@ -198,7 +198,7 @@ html {
     display: flex;
     background-color:#F8F9FA;
    /* padding-top: 80px; */
-    background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)) , url('donation.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)) , url('/img/donation.png');
     z-index: -200; 
     background-size: cover;
     background-position: center;

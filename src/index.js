@@ -3,11 +3,11 @@ require('dotenv').config();
 const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 require('./db/connect');
 const homeRouter = require('./routers/homeRouter');
 const NGORouter = require('./routers/NGORouter');
 const donorRouter = require('./routers/donorRouter');
-const exp = require('constants');
 
 // Initialize variables
 const app = express();
@@ -24,6 +24,7 @@ app.set('views', templatePath);
 hbs.registerPartials(partialPath);
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
+app.use(cookieParser());
 app.use('/', express.static(staticPath));
 app.use(homeRouter);
 app.use(donorRouter);

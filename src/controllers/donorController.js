@@ -1,10 +1,12 @@
 const donor = require('../models/donorModel');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const getRegistrationPage = (req, res) => {
     res.status(200).render('signin');
 }
 const getLoginPage = (req, res) => {
-    res.status(200).render('loginpage');
+    res.status(200).render('templogin');
 }
 const createDetails = async (req, res) => {
     try {
@@ -36,13 +38,31 @@ const createDetails = async (req, res) => {
             res.status(400).send('User already Exist');
         }
         else{
-            console.log(err);
-            res.status(400).send(err);
+            console.log(err.message);
+            res.status(400).send(err.message);
         }
     }
 }
-const getUser = (req, res) => {
-    res.send('get donor');
+const getUser = async (req, res) => {
+    try {
+        const username = await donor.findOne({email : req.body.email});
+        if(!username)
+            throw new Error('Invalid UserDetails');
+        const match = await bcrypt.compare(req.body.password, username.password);
+        if(match){
+            const token = jwt.sign({_id : username._id, firstName : username.firstName}, process.env.SECRET_KEY);
+            res.cookie('access_token', token, {
+                expires : new Date(Date.now() + 120000),
+                httpOnly : true
+            })
+            res.status(201).send('Login Successful!');
+        }
+        else
+            throw new Error('Invalid Password!!');
+    } catch (err) {
+        console.log(err.message);
+        res.status(400).send(err.message);
+    }
 }
 
 module.exports = {getRegistrationPage, getLoginPage, createDetails, getUser};

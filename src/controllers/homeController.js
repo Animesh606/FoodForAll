@@ -1,5 +1,18 @@
 const getHomePage = (req, res) => {
-    res.status(200).render('home');
+    // console.log(req.cookies.access_token);
+    if(req._id){
+        res.status(200).render('home', {
+            login : 'none',
+            profile : 'inline-block',
+            name : req.firstName
+        })
+    }
+    else{
+        res.status(200).render('home', {
+            login : 'inline-block',
+            profile : 'none'
+        });
+    }
 }
 const getContactPage = (req, res) => {
     res.status(200).render('contact');
