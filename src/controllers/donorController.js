@@ -75,5 +75,16 @@ const getProfilePage = async (req, res) => {
         res.status(403).redirect('/donor/login');
     }
 }
+const logOut = (req, res) => {
+    try {
+        if(!req._id)
+            throw new Error('Authentication Error');
+        res.clearCookie('access_token');
+        res.status(200).send('Logged Out Successfully!!');
+    } catch (err) {
+        console.log(err.message);
+        res.status(403).send(err.message);
+    }
+}
 
-module.exports = {getRegistrationPage, getLoginPage, createDetails, getUser, getProfilePage};
+module.exports = {getRegistrationPage, getLoginPage, createDetails, getUser, getProfilePage, logOut};

@@ -12,5 +12,8 @@ donorRouter.get('/donor/profile', auth, donorController.getProfilePage);
 donorRouter.post('/donor/registration', donorController.createDetails);
 donorRouter.post('/donor/login', donorController.getUser);
 
+// All route with delete method
+donorRouter.delete('/donor/login', auth, donorController.logOut);
+
 // Export router
 module.exports = donorRouter;

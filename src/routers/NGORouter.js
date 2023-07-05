@@ -12,5 +12,8 @@ NGORouter.get('/NGO/profile', auth, NGOController.getProfilePage);
 NGORouter.post('/NGO/registration', NGOController.createDetails);
 NGORouter.post('/NGO/login', NGOController.getUser);
 
+// All route with delete method
+NGORouter.delete('/NGO/login', auth, NGOController.logOut);
+
 // Export router
 module.exports = NGORouter;
