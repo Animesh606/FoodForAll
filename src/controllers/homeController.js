@@ -4,6 +4,7 @@ const getHomePage = (req, res) => {
         res.status(200).render('home', {
             login : 'none',
             profile : 'inline-block',
+            user : req.user,
             name : req.firstName
         })
     }

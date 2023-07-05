@@ -50,7 +50,7 @@ const getUser = async (req, res) => {
             throw new Error('Invalid UserDetails');
         const match = await bcrypt.compare(req.body.password, username.password);
         if(match){
-            const token = jwt.sign({_id : username._id, firstName : username.firstName}, process.env.SECRET_KEY);
+            const token = jwt.sign({_id : username._id, firstName : username.firstName, user : 'donor'}, process.env.SECRET_KEY);
             res.cookie('access_token', token, {
                 expires : new Date(Date.now() + 120000),
                 httpOnly : true
@@ -64,5 +64,16 @@ const getUser = async (req, res) => {
         res.status(400).send(err.message);
     }
 }
+const getProfilePage = async (req, res) => {
+    try {
+        const user = await donor.findOne({_id : req._id});
+        if(!user)
+            throw new Error('Authentication Error!!');
+        res.status(200).send(user);
+    } catch (err) {
+        console.log(err.message);
+        res.status(403).redirect('/donor/login');
+    }
+}
 
-module.exports = {getRegistrationPage, getLoginPage, createDetails, getUser};
+module.exports = {getRegistrationPage, getLoginPage, createDetails, getUser, getProfilePage};
