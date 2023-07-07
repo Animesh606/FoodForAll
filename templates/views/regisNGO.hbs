@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Page</title>
-
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!--- My CSS Link-->
     <link rel="stylesheet" href="/css/signinstyle.css">
 </head>
@@ -16,7 +16,6 @@
            <h1>Welcome to our Organization Registration page!</h1>
            <p>By joining our esteemed donor community, you are taking a powerful step towards making a difference in the lives of those who need it most</p>  
         </section>
-
         <section>
             
     <div class="sign-up">
@@ -27,11 +26,11 @@
                 <p class="msg">Organization Name cannot be empty</p>
             </div>
 
-            <div class="form-btn">
-                <input type="text" placeholder="Please enter full address" name="address"  id="address" required>
-                <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+            <!-- <div class="form-btn">
+                <input type="text" placeholder="Please enter full address"  id="address">
+       
                 <p class="msg">Address cannot be empty</p>
-            </div>
+            </div> -->
 
             <div class="form-btn">
                 <input type="email" placeholder="Registered Email Address" name="email"  id="email" required>
@@ -48,23 +47,47 @@
                 <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
                 <p class="msg">Please enter a valid ID</p>
             </div>
-            <!-- <div class="form-btn"></div>
-            <input type="tel" id="contact-number" name="contact-number" placeholder="Enter your contact number" required>
-            </div> -->
             <div class="form-btn">
-                <input type="password" placeholder="Password more than 8 characters" id="password" name="password" required>
+                <input type="text" placeholder="Address"  id="address" name="address" required>
+                <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                <p class="msg">Please enter valid address</p>
+            </div>
+            <div class="fo-btn">
+               
+            <input type="text" placeholder="City"  id="city" name="city" required>
+           <input type="text" placeholder="State"  id="state" name="state" required> 
+                <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                <p class="msg">Please enter a valid state</p>
+            </div>
+            <div class="form-btn">
+                <input type="password" placeholder="Strong Password more than 8 characters" id="password" name="password" required>
                 <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
                 <p class="msg">Password should be more than 8 charecters</p>
             </div>
             <div class="form-btn">
-                <input type="password" placeholder="Enter Password again" name="cpassword" id="password_again" required>
+                <input type="password" placeholder="Enter Password again" id="password_again" name="cpassword" required>
                 <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
-                <p class="msg">Password does not match</p>
+                <p class="msg">Password doesnot match</p>
             </div>
+            <div class="form-btn">
+                <textarea type="text" name="about" placeholder="Tell us something about your Organisation" rows="4" cols="61"></textarea>
+            </div>
+            <div class="form-btn">
+                <div class="container">
+                    <input type="file" id="file" accept="image/*" name="img" hidden>
+                    <div class="img-area" data-img="">
+                        <i class='bx bxs-cloud-upload icon'></i>
+                        <h3>Upload Image</h3>
+                        <p>Image size must be less than <span>1MB</span></p>
+                    </div>
+                    <button class="select-image">Select Image</button>
+                </div>
+                </div>
             <input id="submit-btn" type="submit" value="sign in" >
 
             <p class="terms">By clicking the button, you are agreeing to our <span><a href="#">Terms and Services</a></span></p>
         </form>
+    </div>
         </section>
     </main>
     

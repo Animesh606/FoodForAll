@@ -1,3 +1,5 @@
+const NGO = require('../models/NGOModel');
+
 const getHomePage = (req, res) => {
     // console.log(req.cookies.access_token);
     if(req._id){
@@ -21,5 +23,14 @@ const getContactPage = (req, res) => {
 const getLoginPage = (req, res) => {
     res.status(200).render('loginpage');
 }
+const getSchemePage = async (req, res) => {
+    try {
+        const card = await NGO.find();
+        res.status(200).render('schemes', {card})
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send(error.message);
+    }
+}
 
-module.exports = {getHomePage, getContactPage, getLoginPage};
+module.exports = {getHomePage, getContactPage, getLoginPage, getSchemePage};

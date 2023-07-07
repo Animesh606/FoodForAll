@@ -7,6 +7,7 @@ const auth = require('../middlewares/auth');
 homeRouter.get('/', auth, homeController.getHomePage);
 homeRouter.get('/contact', homeController.getContactPage)
 homeRouter.get('/login', homeController.getLoginPage);
+homeRouter.get('/scheme', homeController.getSchemePage);
 
 // Export router
 module.exports = homeRouter;

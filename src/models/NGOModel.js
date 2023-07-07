@@ -40,6 +40,19 @@ const NGOSchema = new mongoose.Schema({
         unique : true,
         minLength : 11
     },
+    city : {
+        type : String,
+        trim : true,
+        uppercase : true,
+        required : true
+    },
+    state : {
+        type : String,
+        uppercase : true,
+        required : true
+    },
+    details : String,
+    img : String,
     password : {
         type : String,
         required : [true, 'Password required'],
@@ -59,13 +72,15 @@ const NGOSchema = new mongoose.Schema({
     donations : [{
         tranId : {
             type : String,
-            required : true,
-            unique : true
+            required : true
         },
-        donorName : {
-            type : String,
-            required : true,
-        },
+        donorDetails : [{
+            name : {
+                type : String,
+                required : true,
+            },
+            email : String
+        }],
         amount : {
             type : Number,
             required : true,

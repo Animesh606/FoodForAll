@@ -17,6 +17,8 @@ const createDetails = async (req, res) => {
                 email : req.body.email,
                 phone : req.body.phone,
                 govId : req.body.govId,
+                city : req.body.city,
+                state : req.body.state,
                 password : req.body.password
             });
             const result = await user.save();
@@ -38,9 +40,14 @@ const createDetails = async (req, res) => {
                 res.status(400).write(err.errors.govId.message);
             if(err.errors.password)
                 res.status(400).write(err.errors.password.message);
+            if(err.errors.city)
+                res.status(400).write(err.errors.city.message);
+            if(err.errors.state)
+                res.status(400).write(err.errors.state.message);
             res.status(400).send();
         }
         else if(err.code == 11000){
+            console.log(err);
             res.status(400).send('Organisation already Exist');
         }
         else{
