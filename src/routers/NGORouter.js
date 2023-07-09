@@ -5,7 +5,7 @@ const auth = require('../middlewares/auth');
 
 // All route with get method 
 NGORouter.get('/NGO/registration', NGOController.getRegistrationPage);
-NGORouter.get('/NGO/login', NGOController.getLoginPage);
+// NGORouter.get('/NGO/login', NGOController.getLoginPage);
 NGORouter.get('/NGO/profile', auth, NGOController.getProfilePage);
 
 // All route with post method 

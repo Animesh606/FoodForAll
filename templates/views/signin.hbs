@@ -17,13 +17,14 @@
         <section class="learn">
             <h1>Welcome to our Donor Registration page!</h1>
             <p>By joining our esteemed donor community, you are taking a powerful step towards making a difference in
-                the lives of those who need it most</p>
+                the lives of those who need it most.</p>
         </section>
 
         <section>
 
             <div class="sign-up">
-                <form action="/donor/registration" class="signup-form" data-netlify="true" method="post" onsubmit="return validation()">
+                <form action="/donor/registration" class="signup-form" data-netlify="true" method="post"
+                    onsubmit="return validation()">
                     <div class="form-btn">
                         <input type="text" placeholder="First Name" name="firstName" id="first-name" required>
                         <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
@@ -41,7 +42,31 @@
                         <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
                         <p class="msg">Looks like this is not an email</p>
                     </div>
-
+                    <div class="form-btn">
+                        <input type="mobile" placeholder="Contact No" name="phone" id="number" required>
+                        <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                        <p class="msg">Looks like this is not an valid number</p>
+                    </div>
+                    <div class="form-btn">
+                        <input type="text" placeholder="Address" name="address" id="address">
+                        <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                        <p class="msg">Looks like this is not an address</p>
+                    </div>
+                    <div class="form-btn">
+                        <input type="text" placeholder="city" name="city" id="city" required>
+                        <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                        <p class="msg">Looks like this is not an address</p>
+                    </div>
+                    <div class="form-btn">
+                        <input type="text" placeholder="state" name="state" id="state" required>
+                        <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                        <p class="msg">Looks like this is not an address</p>
+                    </div>
+                    <div class="form-btn">
+                        <input type="text" placeholder="profession" name="profession" id="profession">
+                        <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->
+                        <p class="msg">Looks like this is not an address</p>
+                    </div>
                     <div class="form-btn">
                         <input type="password" placeholder="Password more than 8 characters" id="password" name="password" required>
                         <!-- <img class="icon" src="./Images/icon-error.svg" alt="Error"> -->

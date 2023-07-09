@@ -5,7 +5,7 @@ const auth = require('../middlewares/auth');
 
 // All route with get method 
 donorRouter.get('/donor/registration', donorController.getRegistrationPage);
-donorRouter.get('/donor/login', donorController.getLoginPage);
+// donorRouter.get('/donor/login', donorController.getLoginPage);
 donorRouter.get('/donor/profile', auth, donorController.getProfilePage);
 
 // All route with post method 
