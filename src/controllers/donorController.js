@@ -69,7 +69,7 @@ const getProfilePage = async (req, res) => {
         const user = await donor.findOne({_id : req._id});
         if(!user)
             throw new Error('Authentication Error!!');
-        res.status(200).send(user);
+        res.status(200).render('profile', user);
     } catch (err) {
         console.log(err.message);
         res.status(403).redirect('/donor/login');
