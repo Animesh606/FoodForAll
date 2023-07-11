@@ -22,6 +22,7 @@ const partialPath = path.join(__dirname, '../templates/partials');
 app.set('view engine', 'hbs');
 app.set('views', templatePath);
 hbs.registerPartials(partialPath);
+hbs.registerHelper('isdefined', (val) => val !== undefined);
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 app.use(cookieParser());

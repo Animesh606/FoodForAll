@@ -28,6 +28,31 @@ const donorSchema = new mongoose.Schema({
                 throw new Error('Invalid Email Id');
         }
     },
+    isVerified : {
+        type : Number,
+        required : true,
+        enum : [0, 1]
+    },
+    phone : {
+        type : String,
+        minlength : 10,
+        maxlength : 10,
+        unique : true
+    },
+    avatar : String,
+    address : String,
+    city : {
+        type : String,
+        uppercase : true,
+        required : true
+    },
+    state : {
+        type : String,
+        uppercase : true,
+        required : true
+    },
+    profession : String,
+    bio : String,
     password : {
         type : String,
         required : [true, 'Password required'],
@@ -43,8 +68,7 @@ const donorSchema = new mongoose.Schema({
     donations : [{
         tranId : {
             type : String,
-            required : true,
-            unique : true
+            required : true
         },
         NGOName : {
             type : String,
@@ -54,6 +78,10 @@ const donorSchema = new mongoose.Schema({
             type : Number,
             required : true,
             min : 50
+        },
+        date : {
+            type : Date,
+            default : Date.now()
         }
     }]
 })

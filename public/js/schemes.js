@@ -45,7 +45,7 @@ for(var i=0;i<getlist.length;i++)
 {
   var a=getlist[i].textContent;
   var b=setlist[i].textContent;
-  var l=(a/b)*100;
+  var l=Math.round((a/b)*100);
   // console.log(l);
   per[i].innerHTML=l+'%';
   const radius = 30;

@@ -8,6 +8,7 @@ homeRouter.get('/', auth, homeController.getHomePage);
 homeRouter.get('/contact', homeController.getContactPage)
 homeRouter.get('/login', homeController.getLoginPage);
 homeRouter.get('/scheme', homeController.getSchemePage);
+homeRouter.get('/logout', auth, homeController.getLogOutPage);
 
 // Export router
 module.exports = homeRouter;
