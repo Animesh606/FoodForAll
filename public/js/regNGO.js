@@ -1,4 +1,3 @@
-// alert("vnb");
 function validation() {   
     const name = document.getElementById('name').value;
     const address= document.getElementById('address').value;
@@ -68,7 +67,6 @@ function validation() {
         
         document.querySelector('#password_again + .msg').style.display = 'block';
         isValid = false;
-        alert("vnb");
      }
      else{
         document.querySelector('#password_again + .msg').style.display = 'none';

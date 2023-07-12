@@ -7,20 +7,19 @@ const NGOSchema = new mongoose.Schema({
     name : {
         type : String,
         trim : true,
-        uppercase : true,
-        required : [true, 'First Name required'],
+        required : true,
         minLength : 2
     },
     address : {
         type : String,
         trim : true,
-        required : [true, 'Address required'],
+        required : true
     },
     email : {
         type : String,
         lowercase : true,
-        required : [true, 'Email id required'],
-        unique : [true, 'Email id already exist!!'],
+        required : true,
+        unique : true,
         validate(val){
             if(!validator.isEmail(val))
                 throw new Error('Invalid Email Id');
@@ -28,7 +27,7 @@ const NGOSchema = new mongoose.Schema({
     },
     phone : {
         type : String,
-        required : [true, 'Phone no required'],
+        required : [true, 'Contact number required'],
         unique : true,
         minlength : 10,
         maxlength : 10
@@ -38,12 +37,15 @@ const NGOSchema = new mongoose.Schema({
         trim : true,
         required : true,
         unique : true,
-        minLength : 11
+    },
+    estd : {
+        type : Number,
+        min : 1800,
+        max : 2100
     },
     city : {
         type : String,
         trim : true,
-        uppercase : true,
         required : true
     },
     state : {
@@ -51,8 +53,14 @@ const NGOSchema = new mongoose.Schema({
         uppercase : true,
         required : true
     },
-    details : String,
-    img : String,
+    description : {
+        type : String,
+        required : true
+    },
+    logo : {
+        type : String,
+        required : true
+    },
     password : {
         type : String,
         required : [true, 'Password required'],
@@ -63,24 +71,39 @@ const NGOSchema = new mongoose.Schema({
     },
     goal : {
         type : Number,
-        default : 0
+        required : true,
+        min : 12000
     },
     fund : {
         type : Number,
         default : 0
     },
+    qr : {
+        type : String
+    },
+    upi : {
+        type : String
+    },
+    activity : {
+        type : String
+    },
+    img : {
+        type : String
+    },
+    isValid : Number,
     donations : [{
         tranId : {
             type : String,
             required : true
         },
-        donorDetails : [{
-            name : {
-                type : String,
-                required : true,
-            },
-            email : String
-        }],
+        name : {
+            type : String,
+            required : true,
+        },
+        email : {
+            type : String,
+            required : true
+        },
         amount : {
             type : Number,
             required : true,
