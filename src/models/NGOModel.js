@@ -108,6 +108,10 @@ const NGOSchema = new mongoose.Schema({
             type : Number,
             required : true,
             min : 50
+        },
+        date : {
+            type : Date,
+            required : true
         }
     }]
 })

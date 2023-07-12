@@ -44,24 +44,6 @@ const createDetails = async (req, res) => {
             });
         else
             res.status(400).render('signin', err);
-        // if(err.errors){
-        //     if(err.errors.firstName)
-        //         res.status(400).write(err.errors.firstName.message);
-        //     if(err.errors.lastName)
-        //         res.status(400).write(err.errors.lastName.message);
-        //     if(err.errors.email)
-        //         res.status(400).write(err.errors.email.message);
-        //     if(err.errors.password)
-        //         res.status(400).write(err.errors.password.message);
-        //     res.status(400).send();
-        // }
-        // else if(err.code == 11000){
-        //     res.status(400).send('User already Exist');
-        // }
-        // else{
-        //     console.log(err.message);
-        //     res.status(400).send(err.message);
-        // }
     }
 }
 const getUser = async (req, res) => {
@@ -112,5 +94,61 @@ const getProfilePage = async (req, res) => {
         });
     }
 }
+const updateProfile = async (req, res) => {
+    try {
+        await donor.findByIdAndUpdate(req._id, {
+            $set : {
+                firstName : req.body.firstName,
+                lastName : req.body.lastName,
+                address : req.body.address,
+                phone : req.body.phone,
+                profession : req.body.profession,
+                bio : req.body.bio,
+                city : req.body.city,
+                state : req.body.state,
+            }
+        })
+        res.status(201).render('thank', {
+            success : true,
+            message : 'Profile Updated Successfully',
+            details : 'visit your account to see new details',
+            url : '/donor/profile',
+            button : 'OK'
+        })
+    } catch (error) {
+        res.status(400).redirect('/donor/profile');
+    }
+}
+const updatePassword = async (req, res) => {
+    try {
+        const user = await donor.findById(req._id);
+        const match = await bcrypt.compare(req.body.opassword, user.password);
+        if(match){
+            if(req.body.password === req.body.cpassword) {
+                user.password = req.body.password;
+                await user.save();
+                res.status(201).render('thank', {
+                    success : true,
+                    message : 'Password updated successfully',
+                    details : 'visit profile to see updated info.',
+                    url : '/donor/profile',
+                    button : 'Ok'
+                })
+            }
+            else
+                throw new Error('Password not matching!');
+        }
+        else
+            throw new Error('Wrong Password!');
+    } catch (error) {
+        res.status(400).render('thank', {
+            success : false,
+            message : 'Something went wrong',
+            details : error.message,
+            url : '/donor/profile',
+            button : 'Try again'
+        })
+    }
+}
 
-module.exports = {getRegistrationPage, getLoginPage, createDetails, getUser, getProfilePage};
+module.exports = {getRegistrationPage, getLoginPage, createDetails, getUser, getProfilePage, updateProfile, updatePassword};
