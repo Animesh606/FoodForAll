@@ -1,17 +1,24 @@
 const NGO = require('../models/NGOModel');
 const donor = require('../models/donorModel');
 
-const getHomePage = (req, res) => {
-    // console.log(req.cookies.access_token);
-    if(req._id){
-        res.status(200).render('home', {valid : true, user : req.user});
-    }
-    else{
-        res.status(200).render('home', {valid : false});
+const getHomePage = async (req, res) => {
+    try {
+        const ngoCount = await NGO.count();
+        const donorCount = await donor.count();
+        if(req._id)
+            res.status(200).render('home', {valid : true, user : req.user, donorCount, ngoCount});
+        else
+            res.status(200).render('home', {valid : false, donorCount, ngoCount});
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).redirect('/');
     }
 }
 const getContactPage = (req, res) => {
-    res.status(200).render('contact');
+    if(req._id)
+        res.status(200).render('contact', {valid : true, user : req.user});
+    else
+        res.status(200).render('contact', {valid : false});
 }
 const getLoginPage = (req, res) => {
     res.status(200).render('loginpage');
@@ -19,7 +26,10 @@ const getLoginPage = (req, res) => {
 const getSchemePage = async (req, res) => {
     try {
         const card = await NGO.find();
-        res.status(200).render('schemes', {card})
+        if(req._id)
+            res.status(200).render('schemes', {card, valid : true, user : req.user});
+        else
+            res.status(200).render('schemes', {card, valid : false});
     } catch (error) {
         res.status(500).render('thank', {
             success : false,

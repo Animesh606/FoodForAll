@@ -27,9 +27,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 app.use(cookieParser());
 app.use('/', express.static(staticPath));
+app.use(NGORouter);
 app.use(homeRouter);
 app.use(donorRouter);
-app.use(NGORouter);
 
 // Listening to the server 
 app.listen(port, () => {
