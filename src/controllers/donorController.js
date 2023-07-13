@@ -20,7 +20,8 @@ const createDetails = async (req, res) => {
                 city : req.body.city,
                 state : req.body.state,
                 profession : req.body.profession,
-                password : req.body.password
+                password : req.body.password,
+                isVerified : 0
             });
             const result = await user.save();
             res.status(201).render('thank', {

@@ -74,6 +74,10 @@ const donorSchema = new mongoose.Schema({
             type : String,
             required : true,
         },
+        NGOId : {
+            type : String,
+            required : true
+        },
         amount : {
             type : Number,
             required : true,

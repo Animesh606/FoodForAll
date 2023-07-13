@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    height: 100vh;
+    background: linear-gradient(rgba(37, 37, 37, 0.8),rgba(37, 34, 34, 0.6)) , url('https://www.bread.org/wp-content/uploads/2022/09/what_is_hunger_mobile_bread-e1667310759687.jpg');
+    z-index: -200; 
+    background-size: cover;
+    /* background-position:; */
+    background-repeat: no-repeat;
+}
+.container{
+    
+	width: 40%;
+    height: 40%;
+	background: #fcf9f9;
+	border-radius: 6px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%) scale(1);
+	text-align: center;
+	padding: 30px 30px 60px 30px;
+	color: #333;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	/* visibility: hidden; */
+	/* transition: transform .4s, top .4s; */
+    line-height: 2rem;
+    
+}
+.Qr{
+    height:150px;
+    width:150px;
+    margin:5% auto;
+}
+img{
+    height: 100%;
+    width:100%;
+}
+.popup h2{
+	margin: 30px 0 10px;
+}
