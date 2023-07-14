@@ -27,7 +27,7 @@ body{
 	/* visibility: hidden; */
 	/* transition: transform .4s, top .4s; */
     line-height: 2rem;
-    
+    padding: 5% 0% 10% 0%;
 }
 .Qr{
     height:150px;

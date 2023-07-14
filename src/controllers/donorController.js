@@ -84,6 +84,7 @@ const getProfilePage = async (req, res) => {
         const user = await donor.findOne({_id : req._id});
         if(!user)
             throw new Error('Authentication Error!!');
+        user.donations.sort(function(a, b){return b.date-a.date});
         res.status(200).render('profile', user);
     } catch (err) {
         res.status(403).render('thank', {

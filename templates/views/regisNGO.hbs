@@ -102,6 +102,9 @@
             </div>
             <div class="form-btn">
                 <textarea type="text" name="description" placeholder="Tell us something about your Organisation" rows="4" cols="61" required></textarea>
+                {{#if (isdefined err.errors.description)}}
+                <p class="msg">err.errors.description.message</p>
+                {{/if}}
             </div>
             <div class="form-btn">
                 <div class="container">
@@ -110,9 +113,9 @@
                         <i class='bx bxs-cloud-upload icon'></i>
                         <h3>Upload Image</h3>
                         <p>Image size must be less than <span>1MB</span></p>
-                {{#if (isdefined err.errors.logo)}}
-                <p class="msg">err.errors.logo.message</p>
-                {{/if}}
+                        {{#if (isdefined err.errors.logo)}}
+                        <p class="msg">err.errors.logo.message</p>
+                        {{/if}}
                     </div>
                     <button class="select-image" type="button">Select Image</button>
                 </div>

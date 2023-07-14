@@ -29,6 +29,21 @@ body {
 .nav-pills a.nav-link i {
 	width: 20px;
 }
+.payment{
+    min-height: 50vh;
+    flex: 4;
+    background: white;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    display: flex;
+    flex-direction: column;
+}
+table{
+    padding: 20px;
+}
+th,td{
+    text-align: left;
+    padding: 10px;
+}
 
 .img-circle img {
 	height: 100px;

@@ -36,10 +36,15 @@
         </div>
         <div class="aboutcontent">
             <h5>_</h5>
-            <h1>Why Donate?</h1>
+            {{!-- <h1>Why Donate?</h1>
             <p>Consider the joy that illuminates a mother's face when she holds her child's hand, knowing that it is nourished and protected from the relentless grip of hunger. Imagine the relief in the heart of a father who can now provide sustenance to his family, breaking the cycle of despair that has haunted them for generations. It is in these transformations that the true essence of compassion is revealed—transcending borders, language barriers, and cultural differences.</p>
             <p>The impact of donating goes beyond filling empty stomachs; it is a testament to our capacity for empathy. Each contribution, no matter how small, becomes an act of solidarity, bridging the divide between privilege and vulnerability. It reminds us that the human experience is interwoven, and our collective responsibility lies in ensuring that no one suffers needlessly. For in the act of giving, we find our own humanity reflected, and the world becomes a brighter, more compassionate place.</p>
-            <a href="https://rzp.io/l/oPJb73G7Fl" target="black">DONATE</a>
+            <a href="https://rzp.io/l/oPJb73G7Fl" target="black">DONATE</a> --}}
+            <h1>what we do </h1>
+            <p>Our mission is simple yet powerful: to connect NGOs and donors on a single platform, facilitating meaningful collaborations and enabling transformative change. We understand the challenges faced by NGOs in securing the necessary
+                 funding to carry out their important work, while donors often struggle to find reliable and impactful organizations to support.</p>
+                 <p>Through our user-friendly platform, NGOs gain increased visibility and access to a diverse network of potential donors who share their passion for making a positive difference. Donors, on the other hand, can explore a wide range of causes, projects, and organizations,
+                 easily finding the ones that align with their values and philanthropic goals.</p>
             <br>
             <br>
             <h5>_</h5>
@@ -53,34 +58,34 @@
 
         <div class="details">
 
-            <div class="info">
-
-                <div class="logo"><i class="fas fa-book-reader"></i></div>
-                <p id="head">What we do</p>
-                <p>We help empower underprivileged children with quality education.</p>
-
-            </div>
-
             <div class="info" data-aos="fade-up">
 
-                <div class="logo"><i class="fas fa-book-open"></i></div>
-                <p id="head">How we do it</p>
-                <p>We helps these children continue their education through digital initiatives.</p>
-            </div>
-
-            <div class="info" data-aos="fade-up">
-
-                <div class="logo"><i class="fas fa-book"></i></div>
+                <div class="logo"><i class="fa-regular fa-circle-dollar-to-slot"></i></div>
                 <p id="head">Make a difference</p>
                 <p>₹ 3,000 can help a child build a life and add wings to their dreams</p>
 
+            </div>
+
+            <div class="info">
+
+                <div class="logo"><i class="fa-solid fa-circle-dollar-to-slot fa-beat-fade"></i></div>
+                <p id="head">Highest Donate</p>
+                <p>Mr {{maxDonor.firstName}} {{maxDonor.lastName}}  Rs: {{maxDonor.totalAmount}}</p>
+
+            </div>
+
+            <div class="info" data-aos="fade-up">
+
+                <div class="logo"><i class="fa-solid fa-money-check-dollar fa-beat"></i></div>
+                <p id="head">Highest collection</p>
+                <p>{{maxNgo.name}} has raised Rs:{{maxNgo.fund}} till now</p>
             </div>
 
             <div class="info" data-aos="fade-up">
 
                 <div class="logo"><i class="fas fa-chart-line"></i></div>
                 <p id="head">Lives benefitted so far</p>
-                <p>Over 50k+ children have benefitted so far with thousands more to go</p>
+                <p>Over 50k+ humgry stomachs have benefitted so far with thousands more to go</p>
 
             </div>
 
@@ -99,22 +104,22 @@
     
     <div class="counterbox">
         <div class="information" data-aos="fade-down">
-            <div class="number"><p>{{ngoCount}}</p></div>
+            <div class="number"><p class="num"  data-val="{{ngoCount}}">0</p></div>
             <div class="text"><p>NGO <br> connected</p></div>
         </div>
     </div>
 
     <div class="counterbox">
         <div class="information" data-aos="fade-down">
-            <div class="number"><p>{{donorCount}}</p></div>
+            <div class="number"><p class="num"  data-val="{{donorCount}}">0</p></div>
             <div class="text"><p>Donors <br> connected</p></div>
         </div>
     </div>
 
     <div class="counterbox">
         <div class="information" data-aos="fade-down">
-            <div class="number"><p>2</p></div>
-            <div class="text"><p>States <br> Across India</p></div>
+            <div class="number"><p class="num" data-val="{{fund}}">000</p></div>
+            <div class="text"><p>Toatal amount <br> raised</p></div>
         </div>
     </div>
 
@@ -147,6 +152,22 @@
                 menu.style.maxHeight = "0px";
             }
         }
+        let valueDisplays = document.querySelectorAll(".num");
+let interval = 20;
+
+valueDisplays.forEach((valueDisplay) => {
+  let startValue = 0;
+  let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+  console.log(endValue);
+  let duration = Math.floor(interval / endValue);
+  let counter = setInterval(function () {
+    startValue += 1;
+    valueDisplay.textContent = startValue;
+    if (startValue == endValue) {
+      clearInterval(counter);
+    }
+  }, duration);
+});
     </script>
 
 </body>

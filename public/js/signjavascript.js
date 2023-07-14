@@ -58,10 +58,10 @@ function validation() {
      }
     }
     // If the form is valid, submit the data
-    if (isValid) {
-        // Perform the form submission or any other desired action
-        console.log('Form submitted!');
-    }
+    // if (isValid) {
+    //     // Perform the form submission or any other desired action
+    //     console.log('Form submitted!');
+    // }
     return isValid;
 }
 

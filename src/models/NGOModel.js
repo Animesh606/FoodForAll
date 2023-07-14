@@ -55,7 +55,8 @@ const NGOSchema = new mongoose.Schema({
     },
     description : {
         type : String,
-        required : true
+        required : true,
+        minlength : 200
     },
     logo : {
         type : String,
@@ -85,7 +86,8 @@ const NGOSchema = new mongoose.Schema({
         type : String
     },
     activity : {
-        type : String
+        type : String,
+        minlength : 100
     },
     img : {
         type : String

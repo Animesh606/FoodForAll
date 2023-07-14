@@ -9,17 +9,17 @@
   <link rel="stylesheet" href="/css/home.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- <script defer src="script.js"></script> -->
-  <title>css-cards</title>
+  <title>NGO-cards</title>
 </head>
-
 <body>
   {{>navbar}}
+  <div class="main">
   <div class="cards">
     {{#each card}}
       {{>card card=.}}
     {{/each}}
   </div>
+  </div>
 </body>
 <script src="/js/schemes.js"></script>
-
 </html>

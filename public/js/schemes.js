@@ -1,6 +1,6 @@
 
 var cardTexts = document.querySelectorAll('.card-text');
-var wordLimit = 60; // Adjust the desired word limit here
+var wordLimit = 40; // Adjust the desired word limit here
 
 cardTexts.forEach(function(cardText) {
   var fullText = cardText.textContent.trim();
