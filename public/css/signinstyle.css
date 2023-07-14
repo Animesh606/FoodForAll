@@ -8,6 +8,11 @@
 }
 body {
     font-size: 16px;
+    background:linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)) , url("https://img.freepik.com/free-photo/background-grey-brick-wall-great-cool-wallpaper_181624-9119.jpg?w=360");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left;
 }
 section {
     max-width: 100%;
@@ -18,7 +23,7 @@ main {
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* made the content be at the middle */
-    background-color: #8291d6;
+    /* background-color: #8291d6; */
     background-size: cover;
     padding: 0 160px;
 }
@@ -166,7 +171,7 @@ textarea:focus, input:focus {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color:  #8291d6;
+        /* background-color:  #8291d6; */
     }
     section {
         width: 100%;

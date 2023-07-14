@@ -56,7 +56,7 @@ const getUser = async (req, res) => {
         if(match){
             const token = jwt.sign({_id : username._id, user : 'donor'}, process.env.SECRET_KEY);
             res.cookie('access_token', token, {
-                expires : new Date(Date.now() + 600000),
+                expires : new Date(Date.now() + 2592000000),
                 httpOnly : true
             })
             res.status(201).render('thank', {
@@ -85,6 +85,8 @@ const getProfilePage = async (req, res) => {
         if(!user)
             throw new Error('Authentication Error!!');
         user.donations.sort(function(a, b){return b.date-a.date});
+        user.valid = true;
+        user.user = req.user;
         res.status(200).render('profile', user);
     } catch (err) {
         res.status(403).render('thank', {

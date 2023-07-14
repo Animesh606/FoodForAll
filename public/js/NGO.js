@@ -24,6 +24,20 @@ console.log(imagesArray);
 //     });
 //     showSlide(slideIndex); // Call the showSlide function after the img elements are created
 //   });
+if(imagesArray=='') 
+{
+  var divElement = document.getElementById("aa");
+// console.log(divElement);
+// Hide the div by setting the CSS display property to "none"
+divElement.style.display = "none";
+}
+// else if(imagesArray.length==1) 
+// {
+//   var divElement = document.getElementById("aa");
+// // console.log(divElement);
+// // Hide the div by setting the CSS display property to "none"
+// divElement.style.width = 400 px;
+// }
   for (var i = 0; i < imagesArray.length; i++) {
     // Create an <img> element
     var img = document.createElement("img");
@@ -80,7 +94,16 @@ console.log(imagesArray);
     intervalId = setInterval(slideImages, 3000);
   });
 
-
+  var menu = document.getElementById("menu");
+  menu.style.maxHeight = "0px";
+  function togglemenu() {
+      if (menu.style.maxHeight == "0px") {
+          menu.style.maxHeight = "390px";
+      }
+      else {
+          menu.style.maxHeight = "0px";
+      }
+  }
 
 
 

@@ -8,6 +8,7 @@ body{
   background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)) , url('https://annamrita.org/wp-content/uploads/2021/12/our-goals-mob.png');
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 /* 
 /* ***************** headline and logo *************** */
@@ -47,11 +48,11 @@ body{
 
   /* background-color: blue; */
 }
-.logo{
+.logoo{
   width : 120px;
   height: 120px;
   border-radius: 50%;
-  background-color: #a93c3c;
+  /* background-color: #a93c3c; */
   margin-left: 20px;
   margin-top: 10px;
 }
@@ -374,10 +375,10 @@ z-index: 999;
 margin: 5% auto;
 width: 800px;
 /* height: 500px; */
-box-shadow: 0px 0px 3px rgb(241, 236, 236);
+/* box-shadow: 0px 0px 3px rgb(241, 236, 236); */
 /* position: relative; */
 overflow: hidden;
-
+/* display: none; */
 }
 .names{
 display: none;  
@@ -390,6 +391,7 @@ height: 400px;
 grid-template-columns: auto auto auto auto; */
 display: flex;
 flex-direction: row;
+/* display: none; */
 /* overflow-x: scroll; */
 /* animation-name: slideranimation;
 animation-duration: 12sec; */
@@ -415,16 +417,4 @@ flex: none;
 .slider img{
   width: 100%;
 }
-}
-.arrow {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-width: 40px;
-height: 40px;
-background-color: rgb(230, 18, 18);
-text-align: center;
-line-height: 40px;
-font-size: 20px;
-cursor: pointer;
 }

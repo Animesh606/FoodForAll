@@ -61,6 +61,17 @@ consti.beginPath();
 consti.arc(canvas.width / 2, canvas.height / 2, radius, startAngle, endAngle);
 consti.stroke();
 }
+// drop down menu script
+var menu = document.getElementById("menu");
+menu.style.maxHeight = "0px";
+function togglemenu() {
+    if (menu.style.maxHeight == "0px") {
+        menu.style.maxHeight = "390px";
+    }
+    else {
+        menu.style.maxHeight = "0px";
+    }
+}
 // const circles = document.querySelectorAll('.circle');
 // console.log("hjhb");
 // circles.forEach(circle => {
