@@ -119,7 +119,7 @@
     <div class="counterbox">
         <div class="information" data-aos="fade-down">
             <div class="number"><p class="num" data-val="{{fund}}">000</p></div>
-            <div class="text"><p>Toatal amount <br> raised</p></div>
+            <div class="text"><p>Total amount <br> raised</p></div>
         </div>
     </div>
 
@@ -151,11 +151,11 @@ valueDisplays.forEach((valueDisplay) => {
   console.log(endValue);
   let duration = Math.floor(interval / endValue);
   let counter = setInterval(function () {
-    startValue += 1;
     valueDisplay.textContent = startValue;
     if (startValue == endValue) {
       clearInterval(counter);
     }
+    startValue += 1;
   }, duration);
 });
     </script>

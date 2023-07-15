@@ -14,7 +14,7 @@ const getHomePage = async (req, res) => {
             ngoCount,
             maxDonor : maxDonor[0],
             maxNgo : maxNgo[0],
-            fund : totalFund[0].sum
+            fund : (totalFund.length) ? totalFund[0].sum : 0
         }
         if(req._id){
             data.valid = true,
