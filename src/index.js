@@ -5,6 +5,7 @@ const hbs = require('hbs');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 require('./db/connect');
+require('./helpers/cloudinary');
 const homeRouter = require('./routers/homeRouter');
 const NGORouter = require('./routers/NGORouter');
 const donorRouter = require('./routers/donorRouter');

@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const path = require('path');
+const cloudinary = require('cloudinary').v2;
 
 const getRegistrationPage = (req, res) => {
     res.status(200).render('regisNGO');
@@ -193,21 +194,13 @@ const updateActivity = async (req, res) => {
     try {
         const user = await NGO.findById(req._id);
         if(req.files) {
-            let filename = '';
-            req.files.forEach((file) => {
-                filename += file.filename + ','
-            });
-            filename = filename.substring(0, filename.lastIndexOf(','));
             if(user.img){
                 const files = user.img.split(',');
-                files.forEach((file) => {
-                    fs.unlink(path.join(__dirname, `../../public/uploads/${file}`), (err) => {
-                        if(err)
-                            throw err;
-                    });
+                files.forEach(async (file) => {
+                    await cloudinary.uploader.destroy(file);
                 })
             }
-            user.img = filename;
+            user.img = req.files.filename;
         }
         user.activity = req.body.activity;
         await user.save();

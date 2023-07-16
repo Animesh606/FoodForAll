@@ -1,29 +1,46 @@
+const cloudinary = require('cloudinary').v2;
+const fs = require('fs');
 const path = require('path');
-const multer = require('multer');
 
-const storage = multer.diskStorage({
-    destination : function(req, file, cb) {
-        cb(null, path.join(__dirname, '../../public/uploads'));        
-    },
-    filename : function(req, file, cb) {
-        const name = Date.now() + Math.round(Math.random() * 100000) + path.extname(file.originalname);
-        cb(null, name);
+const uploadToCloudinary = async (locaFilePath) => {
+    try {
+        const presentFile = path.join(__dirname, '../../public/uploads/' + locaFilePath);
+        const mainFolderName = "WebData/FoodForAll/";
+        const filePathOnCloudinary = mainFolderName + locaFilePath;
+        const result = await cloudinary.uploader.upload(presentFile, {public_id: filePathOnCloudinary});
+        fs.unlinkSync(presentFile);
+        return result.url;
+    } catch (error) {
+        fs.unlinkSync(presentFile);
+        throw error;
     }
-});
+}
 
-const upload = multer({
-    storage,
-    fileFilter :  function(req, file, cb) { 
-        if(file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg")
-            cb(null, true);
-        else {
-            cb(null, false);
-            return cb(new Error("Only .jpg, .jpeg, .png format allowed"));
+const uploadSingle = async (req, res, next) => {
+    try {
+        const locaFilePath = req.file.filename;
+        const result = await uploadToCloudinary(locaFilePath);
+        req.file.filename = result;
+        next();
+    } catch (error) {
+        res.status(405).send(error.message);
+    }
+}
+
+const uploadMultiple = async (req, res, next) => {
+    try {
+        let filename = '';
+        for(let i = 0; i < req.files.length; i++) {
+            const locaFilePath = req.files[i].filename;
+            const result = await uploadToCloudinary(locaFilePath);
+            filename += result + ',';
         }
-    },
-    limits : {
-        fileSize : 1024 * 1024
+        filename = filename.substring(0, filename.lastIndexOf(','));
+        req.files.filename = filename;
+        next();
+    } catch (error) {
+        res.status(405).send(error.message);
     }
-});
+}
 
-module.exports = upload;
+module.exports = {uploadSingle, uploadMultiple};
