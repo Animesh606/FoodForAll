@@ -163,12 +163,8 @@ const updateBank = async (req, res) => {
     try {
         const user = await NGO.findById(req._id);
         if(req.file){
-            if(user.qr){
-                fs.unlink(path.join(__dirname, `../../public/uploads/${user.qr}`), (err) => {
-                    if(err)
-                        throw err;
-                });
-            }
+            if(user.qr)
+                await cloudinary.uploader.destroy(user.qr);
             user.qr = req.file.filename;
         }
         user.upi = req.body.upi;
