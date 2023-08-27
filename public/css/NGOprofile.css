@@ -35,7 +35,7 @@ body {
 }
 .nav-pills a.nav-link i {
 	width: 20px;
-}
+} 
 
 .img-circle img {
 	height: 100px;
@@ -87,8 +87,10 @@ body {
 }
  /* ************ QR code ************ */
  .containers{
-	margin-left: 20%;
+	margin-left: 17%;
+	margin-right: 10px;
 	margin-bottom: 10px;
+	margin-bottom: 20px;
  }
  .img-area {
 	position: relative;
@@ -163,12 +165,16 @@ body {
 	cursor: pointer;
 	transition: all .3s ease;
 } 
+.row{
+	margin-bottom: 2px;
+}
 /* ************ UPI ************ */
 #UPI{
 	margin-top: 20%;
 }
 /* *************** for image upload *************** */
 .conta {
+	box-sizing: border-box;
 	background-color: #ffffff;
 	width: 90%;
 	max-width: 34.37em;
@@ -185,15 +191,17 @@ body {
 	display: block;
 	position: relative;
 	background-color: #025bee;
+	/* background-color: #02ee02; */
 	color: #ffffff;
 	font-size: 1.12em;
 	font-weight: 500;
-	text-align: center;
-	width: 18.75em;
+	/* text-align: center; */
+	width: 60%;
 	padding: 1.12em 0;
 	margin: auto;
 	border-radius: 0.31em;
 	cursor: pointer;
+	text-align: center;
   }
   #num-of-files {
 	font-weight: 400;
@@ -220,6 +228,7 @@ body {
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     display: flex;
     flex-direction: column;
+	overflow: auto;
 }
 table{
     padding: 20px;
@@ -234,4 +243,9 @@ th,td{
 	width: 100px;
 	border-radius: 100%;
 	border: 5px solid #fff;
+}
+@media only screen and (max-width : 796px ){
+	.containers{
+	margin: auto;
+	}
 }

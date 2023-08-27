@@ -24,8 +24,6 @@
 	visibility: visible;
 	top: 50%;
 	transform: translate(-50%,-50%) scale(1);
-	
-
 } */
 .popup img{
 	width: 100px;
@@ -43,4 +41,9 @@
 	border: none;
 	cursor: pointer;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+@media only screen and (max-width : 900px ) {
+	.popup{
+		width: 70%;
+	}
 }

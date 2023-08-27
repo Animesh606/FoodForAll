@@ -13,7 +13,7 @@ html {
     top: 0px;
     z-index: 5;
     display: flex;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .logo a{
     text-decoration: none;
@@ -65,13 +65,27 @@ html {
     font-weight: 500;
     position: relative;
   }
-  
+  @media only screen and (max-width:1100px){
+    .contercontent .information{
+        display: flex;
+        flex-direction: column;
+        /* padding: 5px 0px; */
+       }
+  }
 /* navbar mobile view */
-@media only screen and (max-width : 700px){
+@media only screen and (max-width : 893px){
     .nevbar{
         background-color: black;
     }
-  
+    .contercontent .information{
+        display: flex;
+        /* background-color: #1c62a8; */
+        align-items: center;
+        text-align: center;
+       }
+       .counterbox{
+        padding: 5% 0%;
+       }
     ul li ul:hover {
       visibility: visible;
       opacity: 1;
@@ -84,7 +98,7 @@ html {
         text-align: right;
         margin-right: 0px;
         position:absolute;
-        background-color:transparent;
+        background-color:rgb(61, 59, 59);
         width: 100%;
         top: 49px;
         overflow:auto;
@@ -393,10 +407,15 @@ html {
     box-sizing: border-box;
     display: flex;
     background-color:aliceblue;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
 }
 .counterbox {
     width: 100%;
     height: 250px;
+    align-items: center;
+    text-align: center;
 }
 .contercontent .one {
     background-color: rgb(1, 99, 1);
@@ -420,7 +439,6 @@ html {
     font-weight: 400;
 }
 
-
 @media only screen and (max-width : 700px ) {
 
     /* ******************************   Counter  *********************** */
@@ -430,7 +448,7 @@ html {
     .counterbox {
         height: 150px;
     }
-
+ 
 }
 
 /************************************** Contact **********************************************/
@@ -463,6 +481,13 @@ html {
     margin-bottom: 8px;
     box-shadow: 0px 4px 8px rgba(0,0,0,.07);
 }
+.contactcontanner .contanner .calls {
+    width: 100%;
+    align-items: center;
+    border: 2px solid white;
+    margin-bottom: 8px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,.07);
+}
 .heading .icon {
     padding: 0 0 0 20px;
     font-size: 20px;
@@ -477,7 +502,31 @@ html {
     color: rgba(255, 255, 255, 0.7);
     font-weight: 500;
 }
-
+.calls .info {
+    width: 80%;
+    margin: 25px auto;
+    color: white;
+}
+.calls .info #contactinfo {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+#phone{
+    font-size: 20px;
+    padding-right: 10px;
+    color: rgb(3, 180, 3);
+   
+}
+.calls a{
+    color: rgb(249, 252, 249);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  .calls a:hover{
+    color:  rgb(3, 180, 3);
+    background-color: transparent;
+    text-decoration: none;
+  }
 /* message form */
 .messageform {
     width: 70%;
@@ -520,7 +569,7 @@ html {
 /* contact mobile view */ 
 @media only screen and (max-width : 700px) {
     .contact {
-        padding: 50px 0;
+        padding:  25% 5%;
     }
     .contactcontanner {
         width: 95%;
@@ -542,11 +591,12 @@ html {
 }
 /****************************** FOOTER **************************/
 
-/********************** Profile *******************/
+/********************** Profile in navbar *******************/
 .profile {
     height: 3rem;
     width: auto;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
   }
   
   .sub-item {
@@ -618,4 +668,37 @@ html {
     transition: 0.5s;
     font-weight: 500;
     position: relative;
+  }
+/* ******************************* Foter *********************** */
+.footer-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+    background-color: #312f2f;
+}
+.social-icons {
+ /* //   background-color: white; */
+
+    width: 30%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .social-icons a {
+    padding: 10px;/* Add spacing between social icons if desired */
+    border-radius: 50%;
+    margin: 10px;
+    background-color: white;
+    color: #312f2f;
+  }
+  .social-icons a i{
+    font-size: 1.5rem;
+  }
+  .social-icons a:hover{
+    color: rgb(5, 44, 77);
   }

@@ -8,22 +8,7 @@ var h1Tag = document.getElementById("nam");
 // Get the text content of the <h1> tag
 var imageNames = h1Tag.textContent;
 var imagesArray = imageNames.split(",");
-// console.log(imagesArray);
-// fetch('imageFile.txt')
-//   .then(response => response.text())
-//   .then(data => {
-//     const imageNames = data.split('\n');
-//     imageNames.forEach(imageName => {
-//       if (imageName.trim() !== '') {
-//         // console.log(imageName.trim());
-//         const img = document.createElement('img');
-//         img.src = imageName.trim();
-//         slider.appendChild(img);
-//         // img.classList.add(".ae");
-//       }
-//     });
-//     showSlide(slideIndex); // Call the showSlide function after the img elements are created
-//   });
+console.log(imagesArray);
 if(imagesArray=='') 
 {
   var divElement = document.getElementById("aa");
@@ -43,7 +28,7 @@ divElement.style.display = "none";
     var img = document.createElement("img");
     
     // Set the src attribute to the image file
-    img.src = imagesArray[i].trim(); // trim() removes any leading/trailing whitespace
+    img.src = '/uploads/'+imagesArray[i].trim(); // trim() removes any leading/trailing whitespace
     
     // Append the <img> element to the slider
     slider.appendChild(img);
@@ -70,14 +55,23 @@ divElement.style.display = "none";
   var intervalId; // Store the interval ID
   const slid = document.querySelector('.main');
   // Function to slide the images
-  // console.log(imagesArray.length);
+  console.log(imagesArray.length);
   function slideImages() {
     var imageWidth = slid.offsetWidth;
     // console.log(imageWidth);
     // console.log("jhgdjh");
+    if(imageWidth!=800) 
+    {
+      var newPosition = -currentIndex * (imageWidth);
+    }
+    else
     var newPosition = -currentIndex * (imageWidth/2);
     slider.style.transform = `translateX(${newPosition}px)`;
-    
+    if(imageWidth!=800) 
+    {
+      currentIndex = (currentIndex + 1) %  (imagesArray.length);
+    }
+    else
     currentIndex = (currentIndex + 1) %  (imagesArray.length-1); // Increment the index and loop back to 0 if it exceeds the number of images
   }
   
@@ -91,9 +85,8 @@ divElement.style.display = "none";
   
   // Resume the interval when hovering out of the images
   slider.addEventListener('mouseleave', function() {
-    intervalId = setInterval(slideImages, 3000);
+    intervalId = setInterval(slideImages, 2000);
   });
-
   var menu = document.getElementById("menu");
   menu.style.maxHeight = "0px";
   function togglemenu() {

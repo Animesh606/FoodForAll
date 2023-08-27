@@ -2,9 +2,11 @@
 
 *{
     font-family: monospace;
-    margin:0; padding:0;
+    margin:0; 
+    padding:0;
     box-sizing: border-box;
-    outline: none; border:none;
+    outline: none;
+    border:none;
     text-decoration: none;
     text-transform: capitalize;
     transition: .2s linear;
@@ -17,7 +19,6 @@
     border-radius: 15%;
 } */
 body{
-    background-color: rgb(236, 242, 242);
     background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.6)) , url('https://haymarketfoodpantry.blackline.limited/wp-content/uploads/sites/42/2021/11/HungryPleaseHelp-cropped-1-300x240.jpg');
     background-position: center; 
     background-repeat: no-repeat;
@@ -31,7 +32,7 @@ body{
     margin: 5% auto;
     max-width: 900px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
     grid-auto-rows: auto;
     gap: 2.5rem;
     font-family: sans-serif;
@@ -151,4 +152,27 @@ body{
     font-size: 16px;
     font-weight: bold;
   }
-  
+  @media only screen and (max-width : 500px){
+    .main{
+      width: 100%;
+      box-sizing: border-box;
+      padding: 20% 9%;
+    }
+   
+      .cards {
+          grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+          gap: 1.5rem;
+          padding-top: 15px; /* Adjust padding as needed */
+      }
+      .circle-container {
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        /* text-align: center; */
+        background-color:#154217;
+         border-radius: 20%;
+         top: 37%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+  }
