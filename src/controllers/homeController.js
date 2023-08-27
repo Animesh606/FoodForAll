@@ -22,8 +22,8 @@ const getHomePage = async (req, res) => {
         }
         res.status(200).render('home', data);
     } catch (error) {
-        console.log(error.message);
-        res.status(500).redirect('/');
+        console.log(error);
+        res.status(500).send();
     }
 }
 const getContactPage = (req, res) => {

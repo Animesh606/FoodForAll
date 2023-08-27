@@ -8,7 +8,7 @@ var h1Tag = document.getElementById("nam");
 // Get the text content of the <h1> tag
 var imageNames = h1Tag.textContent;
 var imagesArray = imageNames.split(",");
-console.log(imagesArray);
+// console.log(imagesArray);
 if(imagesArray=='') 
 {
   var divElement = document.getElementById("aa");
@@ -28,7 +28,7 @@ divElement.style.display = "none";
     var img = document.createElement("img");
     
     // Set the src attribute to the image file
-    img.src = '/uploads/'+imagesArray[i].trim(); // trim() removes any leading/trailing whitespace
+    img.src = imagesArray[i].trim(); // trim() removes any leading/trailing whitespace
     
     // Append the <img> element to the slider
     slider.appendChild(img);

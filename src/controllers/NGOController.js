@@ -1,8 +1,6 @@
 const NGO = require('../models/NGOModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const fs = require('fs');
-const path = require('path');
 const cloudinary = require('cloudinary').v2;
 
 const getRegistrationPage = (req, res) => {
@@ -28,7 +26,7 @@ const createDetails = async (req, res) => {
                 password : req.body.password,
                 isValid : 0
             });
-            const result = await user.save();
+            await user.save();
             res.status(201).render('thank', {
                 success : true,
                 message : 'Registration Successful!',
@@ -163,7 +161,7 @@ const updateBank = async (req, res) => {
     try {
         const user = await NGO.findById(req._id);
         if(req.file){
-            if(user.qr !== "")
+            if(user.qr)
                 await cloudinary.uploader.destroy(user.qr);
             user.qr = req.file.filename;
         }
